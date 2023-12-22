@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic List Filtering</title>
+    <style>
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            margin: 5px;
+            padding: 5px;
+            border: 1px solid #ddd;
+            display: none; /* initially hide all items */
+        }
+    </style>
+</head>
+<body>
+    <h1>Dynamic List Filtering</h1>
+    
+    <label for="filterInput">Filter items:</label>
+    <input type="text" id="filterInput">
+
+    <ul id="itemList">
+        <li>CSS</li>
+        <li>Tailwind CSS</li>
+        <li>Java</li>
+        <li>Javascript</li>
+        <li>C</li>
+        <li>C++</li>
+        
+    </ul>
+
+    <script>
+        var filterInput = document.getElementById('filterInput');
+        var itemList = document.getElementById('itemList');
+        var items = itemList.getElementsByTagName('li');
+
+        filterInput.addEventListener('input', function() {
+            var filterText = filterInput.value.toLowerCase();
+
+            // Loop through items and show/hide based on filter
+            for (var i = 0; i < items.length; i++) {
+                var itemText = items[i].textContent.toLowerCase();
+                if (itemText.includes(filterText)) {
+                    items[i].style.display = 'block';
+                } else {
+                    items[i].style.display = 'none';
+                }
+            }
+        });
+    </script>
+</body>
+</html>

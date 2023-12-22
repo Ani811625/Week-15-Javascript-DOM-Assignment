@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Web Counter</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin-top: 50px;
+    }
+
+    #counter {
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+
+    button {
+      font-size: 18px;
+      margin: 0 10px;
+      padding: 8px 16px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <div id="counter">0</div>
+  <button id="incrementBtn" onclick="incrementCounter()">+</button>
+  <button id="decrementBtn" onclick="decrementCounter()">-</button>
+
+  <script>
+    let counterValue = 0;
+
+    function updateCounterDisplay() {
+      document.getElementById('counter').textContent = counterValue;
+    }
+
+    function showAlert() {
+      alert("Counter cannot go below zero!");
+    }
+
+    function incrementCounter() {
+      counterValue++;
+      updateCounterDisplay();
+    }
+
+    function decrementCounter() {
+      if (counterValue > 0) {
+        counterValue--;
+        updateCounterDisplay();
+      } else {
+        showAlert();
+      }
+    }
+  </script>
+
+</body>
+</html>
